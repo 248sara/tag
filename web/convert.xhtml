@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2" border="1">
+                <h:outputText value="Enter Amount:"/>
+                <h:panelGroup>
+                    <h:inputText value="#{customer.amount}" id="amount" label="Amount" converterMessage="Invalid amount, amount should be greater than 100 SDG">
+                        <f:convertNumber maxFractionDigits="3" minIntegerDigits="2" pattern="#,###.000"/>
+                        
+                    </h:inputText>
+                    <br></br>
+                    <h:message for="amount" showSummary="true" showDetail="false" style="color: red"/>
+                </h:panelGroup>
+                
+                <h:outputText value="Enter Amount in USD:"/>
+                <h:panelGroup>
+                    <h:inputText value="#{customer.usd}" id="usdamount" label="uSDAmount" converterMessage="Invalid amount, amount should be greater than 100 USD">
+                        <f:convertNumber maxFractionDigits="3" minIntegerDigits="2" pattern="#,###.000"/> 
+                    </h:inputText>
+                    <br></br>
+                    <!--<h:message for="usdamount" showSummary="true" showDetail="false" style="color: red"/> -->
+                </h:panelGroup>
+                
+                <h:outputText value="Enter your Name:"/>
+                <h:panelGroup>
+                    <h:inputText value="#{customer.name}" id="name" label="Name" converterMessage="Invalid Name" required="true">
+                        <f:validateRequired/>
+                        <f:validateLength minimum="3" maximum="50"/>
+                    </h:inputText>
+                    <br></br>
+                 
+                </h:panelGroup>
+            </h:panelGrid>
+            <h:commandButton value="Back" action="index" immediate="true"/>
+            <h:commandButton value="Go" action="convertResult"/>
+            <h:messages layout="table"/>
+        </h:form>
+    </h:body>
+</html>
+

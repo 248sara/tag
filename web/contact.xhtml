@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view >
+            <h:form>
+                #{msg.title}
+                <p></p>
+                <h:panelGrid columns="2">
+                    #{msg.name}
+                    <h:inputText value="#{contact.name}" required="true" label="Name"/>
+                    
+                    #{msg.pwd}
+                    <h:inputSecret value="#{contact.password}"/>
+                    
+                    #{msg.lang}
+                    <h:selectOneListbox value="#{contact.language}" valueChangeListener="#{contact.setLocal}" onchange="submit()" immediate="true">
+                        <f:selectItems value="#{contact.lan}"/>
+                    </h:selectOneListbox>
+                    
+                    #{msg.prefere}
+                    <h:selectOneMenu value="#{contact.favorite}" valueChangeListener="#{contact.displayDetail}" onchange="submit()" immediate="true">
+                        <f:selectItem itemValue="colors" itemLabel="Colors"/>
+                        <f:selectItem itemValue="fruits" itemLabel="Fruits"/>
+                    </h:selectOneMenu>
+                    
+                    #{msg.yourpref}
+                    <h:selectOneMenu value="#{contact.detail}" >
+                        <f:selectItems value="#{contact.favoriteResult}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Go" action="index"/>
+                <h:messages layout="table"/>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

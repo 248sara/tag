@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Tags</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="4" >
+                    
+                    <h:outputText value="Name:"/>
+                    <h:inputText value="#{customer.name}"/> 
+                    
+                    
+                    
+                    <h:inputHidden id="em"/>
+                    <h:inputHidden id="em2"/>
+                    
+                    <h:outputText value="Email:"/>
+                    <h:inputText value="#{customer.email}"/>
+                    
+                    <h:inputHidden id="em3" />
+                    <h:inputHidden id="em4" />
+                    
+                    <h:outputText value="Year of Birth:"/>
+                    <h:selectOneMenu value="#{customer.yearOfBirth}" >
+                        <f:selectItem itemLabel="Year of 1990" itemValue="1990"/>
+                        <f:selectItem itemLabel="Year of 1991" itemValue="1991"/>
+                        <f:selectItem itemLabel="Year of 1992" itemValue="1992" />
+                        <f:selectItem itemLabel="Year of 1993" itemValue="1993"/>
+                        <f:selectItem itemLabel="Year of 1994" itemValue="1994"/>
+                        <f:selectItem itemLabel="Year of 1995" itemValue="1995"/>
+                        
+                    </h:selectOneMenu>
+                    
+                    <h:outputText value="Second Year of Birth:"/>
+                    <h:selectOneMenu value="#{customer.yearOfBirth}" >
+                        <f:selectItems value="#{customer.listYears}" var="y" itemValue="#{y.value}" itemLabel="#{y.label}"/>
+                    </h:selectOneMenu>
+                    
+                    
+                    <h:outputText value="Languages skill:"/>
+                    <h:selectManyCheckbox value="#{customer.languague}">
+                        <f:selectItem itemLabel="Arabic" itemValue="AR"/>
+                        <f:selectItem itemLabel="English" itemValue="EN"/>
+                        <f:selectItem itemLabel="French" itemValue="FR"/>
+                    </h:selectManyCheckbox>
+                    
+                    <h:outputText value="2 Languages skill:"/>
+                    <h:selectManyCheckbox value="#{customer.languague}">
+                        <f:selectItems value="#{customer.skillLangs}" var="lang"/>
+                    </h:selectManyCheckbox>
+                    
+                    <h:outputText value="Customer Status:"/>
+                    <h:selectOneRadio value="#{customer.status}">
+                        <f:selectItems value="#{customer.listStatus}"/>
+                    </h:selectOneRadio>
+                    
+                    <h:outputText value="Enter your srvices:"/>
+                    <h:selectManyListbox value="#{customer.myService}">
+                        <f:selectItems value="#{customer.listService}" var="srv" itemLabel="#{srv.serviceNameEnglish}"/>
+                    </h:selectManyListbox>
+                    
+                    <h:outputText value="Enter model number:"/>
+                    <h:selectManyListbox value="#{customer.myService}">
+                        <f:selectItems value="#{customer.listService}" var="srv" itemLabel="#{srv.serviceNameEnglish}"/>
+                    </h:selectManyListbox>
+                    
+                   
+                    
+                </h:panelGrid>
+                <h:commandButton value="Go" action="Result"/>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

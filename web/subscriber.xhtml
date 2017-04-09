@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2">
+                    #{msg.status}
+                    <h:selectOneMenu value="#{sub.status}">
+                        <f:selectItem itemLabel="Not Active" itemValue="N"/>
+                        <f:selectItem itemLabel="Active" itemValue="A"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton value="Go" action="subTable"/>
+            </h:form>
+        </f:view>
+        
+        <P></P>
+        <f:view>
+            <h:form>
+                <h:panelGrid columns="2">
+                    #{msg.name}
+                    <h:inputText value="#{sub.name}"/>
+                    
+                    #{msg.mobileNo}
+                    <h:inputText value="#{sub.mobileNo}"/>
+                    
+                    #{msg.email}
+                    <h:inputText value="#{sub.email}"/>
+                    
+                    #{msg.service}
+                    <h:inputText value="#{sub.service}"/>
+                    
+                    #{msg.subService}
+                    <h:inputText value="#{sub.subService}"/>
+                    
+                    #{msg.source}
+                    <h:inputText value="#{sub.source}" />
+                    
+                </h:panelGrid>
+                <h:commandButton value="Save" action="#{sub.saveEntity()}"/>
+                <h:messages layout="table"/>
+            </h:form>
+        </f:view>
+
+
+    </h:body>
+</html>
+
